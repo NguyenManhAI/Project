@@ -1,0 +1,5 @@
+/papers
+/data
+/code
+/__pycache__
+*.gz
