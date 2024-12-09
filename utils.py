@@ -18,12 +18,12 @@ def get_pairs_train(file_path: str, dir: str):
     Return:
         A list of pairs of paths to images of the specified object, along with the sequence number in the original train set
     """
-    pairs_all_image = _get_all_pairs_train(file_path)[:, :2]
+    pairs_all_image = _get_all_pairs_train(file_path)
 
     pairs_img = []
 
     for i, pair_image in enumerate(pairs_all_image):
-        img1_path, img2_path = pair_image
+        img1_path, img2_path = pair_image[:2]
 
         if img1_path.split('/')[0] == dir:
 
@@ -120,7 +120,7 @@ def crop_matched_regions(image1, image2, kpt0, kpt1, conf, threshold=0.5):
 
     x_min1, y_min1 = kpt1_valid.min(axis=0).astype(int)
     x_max1, y_max1 = kpt1_valid.max(axis=0).astype(int)
-    print((x_min1, y_min1), (x_max1, y_max1))
+    # print((x_min1, y_min1), (x_max1, y_max1))
 
     # Crop the area in image 1 and image 2
     cropped1 = image1[y_min0:y_max0, x_min0:x_max0]

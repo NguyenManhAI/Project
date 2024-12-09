@@ -3,3 +3,9 @@
 /code
 /__pycache__
 *.gz
+dinov2.ipynb
+model_dinov2.py
+without_quote
+new_metadata
+cropped_test
+cropped_train
